@@ -1,0 +1,23 @@
+Package: bmsui
+Title: Dashboard Layout for 'Shiny'
+Version: 0.0.0.9000
+Authors@R: 
+    c(
+        person(family = "Bristol Myers Squibb",
+           role = c("cph", "fnd")),
+        person(given = "John",
+           family = "Coene",
+           role = c("aut", "cre"),
+           email = "john@opifex.org")
+    )
+Description: Dashboard Layout for 'Bristol Myers Squibb'.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Imports:
+  shiny,
+  bslib,
+  assertthat
+Suggests:
+  htmltools
