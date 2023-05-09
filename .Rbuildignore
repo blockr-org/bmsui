@@ -3,3 +3,8 @@
 ^scss$
 ^dev$
 ^makefile$
+^srcjs$
+^rollup\.config\.mjs$
+^node_modules$
+^package\.json$
+^package-lock\.json$

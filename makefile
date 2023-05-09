@@ -4,8 +4,11 @@ default: document
 document: sass
 	Rscript -e "devtools::document()"
 
-sass:
+sass: rollup
 	Rscript dev/sass.R
 
-run: sass
+rollup:
+	rollup -c
+
+run: sass rollup
 	Rscript test.R
