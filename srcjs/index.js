@@ -1,3 +1,5 @@
+import { sidebar } from "./sidebar/index";
+
 $(() => {
-  console.log("hello");
-})
+  sidebar();
+});

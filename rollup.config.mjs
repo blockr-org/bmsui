@@ -16,11 +16,8 @@ const config = {
     css({
       minify: true,
     }),
+    terser(),
   ],
 };
-
-if (process.env.NODE_ENV !== "development") {
-  config.plugins.push(terser());
-}
 
 export default config;
