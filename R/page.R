@@ -5,19 +5,26 @@
 #' @param ... Content of the page, [sidebarItem()]
 #' @param title Title of the page.
 #' @param theme [bslib::bs_theme()]
+#' @param sidebar Sidebar as returned by [sidebar()].
+#' @param navbar Navbar as returned by [navbar()].
 #' 
 #' @import shiny
 #' @export
 bmsPage <- function(
   ...,
+  sidebar,
+  navbar = NULL,
   title = NULL,
   theme = bms_theme()
 ){
+  if(missing(sidebar))
+    stop("Missing sidebar")
+
   if(is.null(title))
     title <- "BMS"
 
-  content <- list(...)
-  sidebar <- content[[1]]
+  if(is.null(navbar))
+    navbar <- ""
 
   appview <- div(
     class = "d-flex",
@@ -39,6 +46,7 @@ bmsPage <- function(
     div(
       class = "container-fluid",
       id = "app",
+      navbar,
       appview
     )
   )

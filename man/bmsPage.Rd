@@ -4,10 +4,14 @@
 \alias{bmsPage}
 \title{Create a BMS-themed Page}
 \usage{
-bmsPage(..., title = NULL, theme = bms_theme())
+bmsPage(..., sidebar, navbar = NULL, title = NULL, theme = bms_theme())
 }
 \arguments{
 \item{...}{Content of the page, \code{\link[=sidebarItem]{sidebarItem()}}}
+
+\item{sidebar}{Sidebar as returned by \code{\link[=sidebar]{sidebar()}}.}
+
+\item{navbar}{Navbar as returned by \code{\link[=navbar]{navbar()}}.}
 
 \item{title}{Title of the page.}
 
