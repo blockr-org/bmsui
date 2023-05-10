@@ -1,18 +1,24 @@
 html {
   #app {
+    padding: 0px;
     margin-left: 0px;
     margin-right: 0px;
   }
 
   #bms-sidebar-container {
-    min-width: 7rem;
+    min-width: 10rem;
     min-height: 92vh;   
     padding: 0;
+    border-right: 1px solid grey;
   }
 
   .bms-sidebar-open {
+    cursor: pointer;
+
     &.active {
-      color: red;
+      border-bottom: 1px solid grey;
+      border-bottom: 1px solid grey;
+      color: $brand;
     }
   }
 }

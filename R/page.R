@@ -16,17 +16,19 @@ bmsPage <- function(
   if(is.null(title))
     title <- "BMS"
 
+  content <- list(...)
+  sidebar <- content[[1]]
+
   appview <- div(
     class = "d-flex",
     div(
       id = "bms-sidebar-container",
-      class = "flex-shrink-1 d-md-block",
-      sapply(list(...), \(item) item$title) |> 
-        sidebar()
+      class = "flex-shrink-1 d-md-block p-4",
+      sidebar$sidebar
     ),
     div(
       class = "flex-grow-1 p-0 w-100",
-      lapply(list(...), \(item) item$content)
+      sidebar$content
     )
   )
 

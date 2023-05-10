@@ -7,12 +7,12 @@
 sidebarItem(title, ...)
 }
 \arguments{
-\item{title}{Title of the sidebar.}
+\item{title}{Title of the item.}
 
-\item{...}{Content of the sidebar.}
+\item{...}{Content of the item.}
 }
 \description{
 Create a sidebar item, similar to tab but works
 with a sidebar.
-Meant to be passed to \code{\link[=bmsPage]{bmsPage()}}.
+Meant to be passed to \code{\link[=sidebar]{sidebar()}}.
 }
