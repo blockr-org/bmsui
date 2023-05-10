@@ -1,7 +1,7 @@
 sidebar <- function(titles) {
   entries <- lapply(titles, \(title) {
     div(
-      class = "sidebar-open",
+      class = "bms-sidebar-open",
       `data-target` = title,
       title
     )
