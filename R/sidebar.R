@@ -40,7 +40,7 @@ sidebar <- function(
           icon("chevron-down", "float-right bms-sidebar-collapsible-icon")
         ),
         div(
-          class = "collapse",
+          class = "bms-sidebar-collapsible-content collapse",
           id = item$title,
           children
         )
@@ -130,49 +130,4 @@ sidebarItem <- function(
 ){
   sidebarItemGeneric(title, ...) |>
     constructSidebarItem()
-}
-
-#' Insert Sidebar Item
-#' 
-#' Insert a sidebar item, similar to tab but works
-#' with a sidebar. 
-#' 
-#' @inheritParams sidebarItem
-#' @param session A valid Shiny session.
-#' 
-#' @export
-insert_sidebar_item <- function(
-  title,
-  ...,
-  session = shiny::getDefaultReactiveDomain()
-){
-  assert_that(is_not_missing(title))
-
-  session$sendCustomMessage(
-    "insert-sidebar-item",
-    list(
-      title = title,
-      content = as.character(...)
-    )
-  )
-}
-
-#' Insert Sidebar Item
-#' 
-#' Insert a sidebar item, similar to tab but works
-#' with a sidebar. 
-#' 
-#' @inheritParams insert_sidebar_item
-#' 
-#' @export
-select_sidebar_item <- function(
-  title,
-  session = shiny::getDefaultReactiveDomain()
-){
-  session$sendCustomMessage(
-    "select-sidebar-item",
-    list(
-      title = title
-    )
-  )
 }
