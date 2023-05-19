@@ -1,5 +1,12 @@
-devtools::document()
-devtools::load_all()
+# Launch the ShinyApp 
+
+pkgload::load_all(
+  export_all = FALSE,
+  helpers = FALSE,
+  attach_testthat = FALSE
+)
+
+library(shiny)
 
 ui <- bmsPage(
   navbar = navbar(
