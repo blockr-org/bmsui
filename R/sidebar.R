@@ -87,17 +87,16 @@ constructSidebarItem <- function(x) {
   structure(x, class = "sidebar-item")
 }
 
-#' Sidebar Item
+#' Insert Sidebar Item
 #' 
-#' Create a sidebar item, similar to tab but works
+#' Insert a sidebar item, similar to tab but works
 #' with a sidebar. 
-#' Meant to be passed to [sidebar()].
 #' 
 #' @inheritParams sidebarItem
 #' @param session A valid Shiny session.
 #' 
 #' @export
-insertSidebarItem <- function(
+insert_sidebar_item <- function(
   title,
   ...,
   session = shiny::getDefaultReactiveDomain()
@@ -109,6 +108,26 @@ insertSidebarItem <- function(
     list(
       title = title,
       content = as.character(...)
+    )
+  )
+}
+
+#' Insert Sidebar Item
+#' 
+#' Insert a sidebar item, similar to tab but works
+#' with a sidebar. 
+#' 
+#' @inheritParams insert_sidebar_item
+#' 
+#' @export
+select_sidebar_item <- function(
+  title,
+  session = shiny::getDefaultReactiveDomain()
+){
+  session$sendCustomMessage(
+    "select-sidebar-item",
+    list(
+      title = title
     )
   )
 }

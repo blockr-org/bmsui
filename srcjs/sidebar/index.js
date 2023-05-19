@@ -1,4 +1,5 @@
 import { handleInsert } from "./insert";
+import { handleSelect }  from "./select";
 
 const showFirstTab = () => {
   let target = $(".bms-sidebar-open").first().data("target");
@@ -6,7 +7,7 @@ const showFirstTab = () => {
 }
 
 let lastTab = "";
-const showTab = (name) => {
+export const showTab = (name) => {
   if(lastTab == name)
     return;
 
@@ -43,5 +44,6 @@ export const sidebar = () => {
   showFirstTab();
   listenTabs();
   handleInsert();
+  handleSelect();
 }
 
