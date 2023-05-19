@@ -1,4 +1,4 @@
-import { listenTabs } from "./index";
+import { listenTabs } from "./show";
 
 export const handleInsert = () => {
   Shiny.addCustomMessageHandler("insert-sidebar-item", (msg) => {

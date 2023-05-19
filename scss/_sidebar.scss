@@ -6,7 +6,7 @@ html {
   }
 
   #bms-sidebar-container {
-    min-width: 10rem;
+    min-width: 12rem;
     min-height: 94vh;   
     padding: 0;
     border-right: 1px solid $lightgray;
@@ -19,6 +19,10 @@ html {
       border-bottom: 1px solid $gray;
       color: $primary;
     }
+  }
+
+  .bms-sidebar-open-collapsible {
+    padding-left: .5rem;
   }
 
   #bms-logo {

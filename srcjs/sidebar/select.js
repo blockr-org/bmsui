@@ -1,4 +1,4 @@
-import { showTab } from "./index";
+import { showTab } from "./show";
 
 export const handleSelect = () => {
   Shiny.addCustomMessageHandler("select-sidebar-item", (msg) => {
