@@ -11,4 +11,4 @@ rollup:
 	rollup -c
 
 run: sass rollup
-	Rscript test.R
+	Rscript app.R

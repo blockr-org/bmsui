@@ -1,3 +1,5 @@
+import { handleInsert } from "./insert";
+
 const showFirstTab = () => {
   let target = $(".bms-sidebar-open").first().data("target");
   showTab(target);
@@ -28,7 +30,9 @@ const showTab = (name) => {
     })
 }
 
-const listenTabs = () => {
+export const listenTabs = () => {
+  $(".bms-sidebar-open").off("click");
+
   $(".bms-sidebar-open").on("click", (e) => {
     let target = $(e.currentTarget).data("target");
     showTab(target);
@@ -38,5 +42,6 @@ const listenTabs = () => {
 export const sidebar = () => {
   showFirstTab();
   listenTabs();
+  handleInsert();
 }
 

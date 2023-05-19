@@ -36,6 +36,7 @@ bmsPage <- function(
       sidebar$sidebar
     ),
     div(
+      id = "bms-tabs",
       class = "flex-grow-1 p-0 w-100",
       sidebar$content
     )
