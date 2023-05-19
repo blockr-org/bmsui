@@ -26,6 +26,8 @@ bmsPage <- function(
   if(is.null(navbar))
     navbar <- ""
 
+  serve_public()
+
   appview <- div(
     class = "d-flex",
     div(
