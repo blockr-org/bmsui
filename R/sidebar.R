@@ -45,7 +45,11 @@ sidebar <- function(
     sidebar = div(
       class = "bms-sidebar",
       title,
-      entries
+      entries,
+      tags$img(
+        id = "bms-logo",
+        src = "/public/img/logo.svg"
+      )
     ),
     content = lapply(list(...), \(item) item$content)
   ) |>

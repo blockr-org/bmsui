@@ -7,7 +7,7 @@ html {
 
   #bms-sidebar-container {
     min-width: 10rem;
-    min-height: 92vh;   
+    min-height: 94vh;   
     padding: 0;
     border-right: 1px solid grey;
   }
@@ -20,6 +20,12 @@ html {
       border-bottom: 1px solid grey;
       color: $brand;
     }
+  }
+
+  #bms-logo {
+    width: 120px;
+    position: absolute;
+    bottom: 2rem;
   }
 }
 
