@@ -9,16 +9,15 @@ html {
     min-width: 10rem;
     min-height: 94vh;   
     padding: 0;
-    border-right: 1px solid grey;
+    border-right: 1px solid $lightgray;
   }
 
   .bms-sidebar-open {
     cursor: pointer;
 
     &.active {
-      border-bottom: 1px solid grey;
-      border-bottom: 1px solid grey;
-      color: $brand;
+      border-bottom: 1px solid $gray;
+      color: $primary;
     }
   }
 
