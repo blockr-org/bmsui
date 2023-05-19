@@ -1,0 +1,14 @@
+html {
+  .form-control,
+  .form-control-sm,
+  .selectize-input {
+    border-radius: 0;
+    border: 1px solid $gray;
+  }
+
+  .control-label {
+    color: $gray;
+    font-size: 16px;
+    margin-bottom: 0 !important;
+  }
+}
