@@ -1,4 +1,4 @@
-import { showTab, listenTabs } from "./show";
+import { showTab, listenTabs, showTabDescription } from "./show";
 import { handleInsert } from "./insert";
 import { handleSelect }  from "./select";
 import { handleSidebarCollapsible } from "./collapsible";
@@ -9,6 +9,7 @@ const showFirstTab = () => {
 }
 
 export const sidebar = () => {
+  showTabDescription();
   showFirstTab();
   listenTabs();
   handleInsert();

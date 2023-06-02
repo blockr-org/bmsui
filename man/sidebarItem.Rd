@@ -4,12 +4,14 @@
 \alias{sidebarItem}
 \title{Sidebar Item}
 \usage{
-sidebarItem(title, ...)
+sidebarItem(title, ..., description = NULL)
 }
 \arguments{
 \item{title}{Title of the item.}
 
 \item{...}{Content of the item.}
+
+\item{description}{Description of item, shows insidebar}
 }
 \description{
 Create a sidebar item, similar to tab but works

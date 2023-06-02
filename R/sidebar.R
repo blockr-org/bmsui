@@ -108,9 +108,10 @@ sidebarCollapsible <- function(
 #' @export
 sidebarCollapsibleItem <- function(
   title,
-  ...
+  ...,
+  description = NULL
 ){
-  sidebarItemGeneric(title, ...) |>
+  sidebarItemGeneric(title, ..., description = description) |>
     constructSidebarCollapsibleItem()
 }
 
@@ -122,12 +123,14 @@ sidebarCollapsibleItem <- function(
 #' 
 #' @param title Title of the item.
 #' @param ... Content of the item.
+#' @param description Description of item, shows insidebar
 #' 
 #' @export
 sidebarItem <- function(
   title,
-  ...
+  ...,
+  description = NULL
 ){
-  sidebarItemGeneric(title, ...) |>
+  sidebarItemGeneric(title, ..., description = description) |>
     constructSidebarItem()
 }

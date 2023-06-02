@@ -15,12 +15,36 @@ export const showTab = (name) => {
         $tab.removeClass("d-none");
         $tab.trigger("shown");
         lastTab = name;
+
+        const event = new CustomEvent("bms:show-tab", { detail: $tab.data("description") });
+        document.dispatchEvent(event);
+
         return;
       }
 
       $tab.addClass("d-none");
       $tab.trigger("hidden");
     })
+}
+
+export const showTabDescription = () => {
+  $(document).off("bms:show-tab");
+
+  $(document).on("bms:show-tab", (e) => {
+    let details = e.detail
+    if(e.detail == null){
+      $("#bms-sidebar-description").html(null);
+      return;
+    }
+
+    let desc = `<p class="fw-bold mb-0">Description</p>
+      <hr/ style="margin-top:0;margin-bottom:.3rem;">
+      <div>
+        ${e.detail}
+      </div>`
+
+    $("#bms-sidebar-description").html(desc);
+  });
 }
 
 export const listenTabs = () => {

@@ -4,12 +4,14 @@
 \alias{sidebarCollapsibleItem}
 \title{Sidebar Collapsible Item}
 \usage{
-sidebarCollapsibleItem(title, ...)
+sidebarCollapsibleItem(title, ..., description = NULL)
 }
 \arguments{
 \item{title}{Title of the item.}
 
 \item{...}{Content of the item.}
+
+\item{description}{Description of item, shows insidebar}
 }
 \description{
 Create a sidebar collapsible item, similar to tab but works

@@ -33,7 +33,10 @@ bmsPage <- function(
     div(
       id = "bms-sidebar-container",
       class = "flex-shrink-1 d-md-block p-2",
-      sidebar$sidebar
+      sidebar$sidebar,
+      div(
+        id = "bms-sidebar-description"
+      )
     ),
     div(
       id = "bms-tabs",

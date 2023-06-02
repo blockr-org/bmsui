@@ -28,21 +28,31 @@ ui <- bmsPage(
         tags$a(class = "btn btn-warning", "Warning"),
         tags$a(class = "btn btn-danger", "Danger"),
         tags$a(class = "btn btn-success", "Success")
+      ),
+      div(
+        class = "card",
+        div(
+          class = "card-body",
+          h2(class = "card-title", "Title")
+        )
       )
     ),
     sidebarCollapsible(
       title = "Collapsible",
       sidebarCollapsibleItem(
         "Collapse 1",
+        description = "First collapsed stuff",
         h1("Collapsed")
       ),
       sidebarCollapsibleItem(
         "Collapse 2",
+        description = "Second collapsed stuff",
         h1("Collapsed 2")
       )
     ),
     sidebarItem(
       "World",
+      description = "World stuff",
       div(
         class = "p-4",
         h1("World"),
@@ -51,6 +61,7 @@ ui <- bmsPage(
     ),
     sidebarItem(
       "Select",
+      description = "Select stuff",
       div(
         class = "p-4",
         h1("Select"),
