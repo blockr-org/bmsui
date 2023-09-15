@@ -1,5 +1,5 @@
-import { listenTabs } from "./show";
-import { handleSidebarCollapsible } from "./collapsible";
+import { listenTabs } from "./show.js";
+import { handleSidebarCollapsible } from "./collapsible.js";
 
 export const handleInsert = () => {
   Shiny.addCustomMessageHandler("insert-sidebar-item", (msg) => {
@@ -9,7 +9,9 @@ export const handleInsert = () => {
   });
 
   Shiny.addCustomMessageHandler("insert-sidebar-collapsible", (msg) => {
-    $("#bms-sidebar-container .bms-sidebar").append(sidebarEntryCollapsible(msg.title));
+    $("#bms-sidebar-container .bms-sidebar").append(
+      sidebarEntryCollapsible(msg.title),
+    );
     handleSidebarCollapsible();
   });
 
@@ -18,15 +20,15 @@ export const handleInsert = () => {
     $("#bms-tabs").append(tab(msg));
     listenTabs();
   });
-}
+};
 
 const sidebarEntry = (title) => {
   return `<div class='bms-sidebar-open mb-2' data-target='${title}'>${title}</div>`;
-}
+};
 
 const sidebarEntryCollapsibleItem = (title) => {
   return `<div class='bms-sidebar-open bms-sidebar-open-collapsible mb-2' data-target='${title}'>${title}</div>`;
-}
+};
 
 const sidebarEntryCollapsible = (title) => {
   return `<div class='bms-sidebar-collapsible-open mb-2' data-bs-toggle="collapse" href="#${title}" data-id="${title}">
@@ -35,8 +37,8 @@ const sidebarEntryCollapsible = (title) => {
   </div>
   <div class="bms-sidebar-collapsible-content collapse" id="${title}">
   </div>`;
-}
+};
 
 const tab = (params) => {
   return `<div class='bms-sidebar-item d-none' data-tab='${params.title}'>${params.content}</div>`;
-}
+};

@@ -1,8 +1,5 @@
-import { sidebar } from "./sidebar/index";
+import { sidebar } from "./sidebar/index.js";
 
 $(() => {
-  $(document).on("bms:show-tab", (e) => {
-    console.log(e.detail);
-  });
   sidebar();
 });

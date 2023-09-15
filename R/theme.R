@@ -1,4 +1,11 @@
-bms_theme <- function(..., primary = "#333333"){
+#' Theme
+#' 
+#' `bslib` theme
+#' 
+#' @param ... Passed to [bslib::bs_theme()].
+#' 
+#' @export
+bms_theme <- function(...){
   bslib::bs_theme(
     version = 5L,
     bootswatch = "litera", 

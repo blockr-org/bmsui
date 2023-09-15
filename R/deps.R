@@ -1,10 +1,20 @@
+#' Dependencies
+#' 
+#' JavaScript and CSS dependencies.
+#' 
+#' @keywords internal
 dependencies <- function(){
   list(
-    css()
+    mainDependencies()
   ) 
 }
 
-css <- function(){
+#' Main Dependencies
+#' 
+#' Main JavaScript and CSS dependencies.
+#' 
+#' @keywords internal
+mainDependencies <- function(){
   htmltools::htmlDependency(
     name = "bms-styles",
     version = utils::packageVersion("bmsui"),

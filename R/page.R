@@ -48,7 +48,7 @@ bmsPage <- function(
   bootstrapPage(
     title = title,
     theme = theme,
-    css(),
+    mainDependencies(),
     div(
       class = "container-fluid",
       id = "app",
