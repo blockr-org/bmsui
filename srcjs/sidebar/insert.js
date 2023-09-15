@@ -16,7 +16,9 @@ export const handleInsert = () => {
   });
 
   Shiny.addCustomMessageHandler("insert-sidebar-collapsible-item", (msg) => {
-    $(`#${msg.target}`).append(sidebarEntryCollapsibleItem(msg.title));
+    $(`[data-id='${msg.target}']`).append(
+      sidebarEntryCollapsibleItem(msg.title),
+    );
     $("#bms-tabs").append(tab(msg));
     listenTabs();
   });
