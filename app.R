@@ -118,12 +118,16 @@ ui <- bmsPage(
       )
     ),
     sidebarItemAny(
-      actionButton("add", "Add")
+      buttonTextInput("btntext", "Add", "tab-name")
     )
   )
 )
 
 server <- function(input, output, session) {
+  observeEvent(input$btntext, {
+    print(input$btntext)
+  })
+
   observeEvent(input$insert, {
     req(input$insertTitle)
 

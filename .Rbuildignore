@@ -9,3 +9,6 @@
 ^package\.json$
 ^package-lock\.json$
 ^app\.R$
+^webpack\.dev\.js$
+^webpack\.prod\.js$
+^webpack\.common\.js$

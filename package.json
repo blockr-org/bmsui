@@ -1,14 +1,18 @@
 {
   "name": "bmsui",
   "version": "1.0.0",
-  "description": "",
+  "description": "<!-- badges: start --> <!-- badges: end -->",
   "main": "index.js",
   "type": "module",
   "directories": {
     "man": "man"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "none": "webpack --config webpack.dev.js --mode=none",
+    "development": "webpack --config webpack.dev.js",
+    "production": "webpack --config webpack.prod.js",
+    "watch": "webpack --config webpack.dev.js -d --watch"
   },
   "repository": {
     "type": "git",
@@ -24,6 +28,33 @@
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.0.2",
     "@rollup/plugin-terser": "^0.4.1",
-    "rollup-plugin-import-css": "^3.2.1"
+    "rollup-plugin-import-css": "^3.2.1",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-merge": "^5.9.0"
+  },
+  "dependencies": {
+    "acorn": "^8.8.2",
+    "buffer-from": "^1.1.2",
+    "builtin-modules": "^3.3.0",
+    "commander": "^2.20.3",
+    "deepmerge": "^4.3.1",
+    "estree-walker": "^2.0.2",
+    "function-bind": "^1.1.1",
+    "has": "^1.0.3",
+    "is-builtin-module": "^3.2.1",
+    "is-core-module": "^2.12.0",
+    "is-module": "^1.0.0",
+    "path-parse": "^1.0.7",
+    "picomatch": "^2.3.1",
+    "randombytes": "^2.1.0",
+    "resolve": "^1.22.2",
+    "rollup": "^2.79.1",
+    "safe-buffer": "^5.2.1",
+    "smob": "^0.0.6",
+    "source-map": "^0.6.1",
+    "source-map-support": "^0.5.21",
+    "supports-preserve-symlinks-flag": "^1.0.0",
+    "terser": "^5.17.3"
   }
 }

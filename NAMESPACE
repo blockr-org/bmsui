@@ -2,6 +2,7 @@
 
 export(bmsPage)
 export(bms_theme)
+export(buttonTextInput)
 export(insert_sidebar_collapsible)
 export(insert_sidebar_collapsible_item)
 export(insert_sidebar_item)
@@ -19,3 +20,5 @@ export(sidebarItem)
 export(sidebarItemAny)
 import(assertthat)
 import(shiny)
+importFrom(shiny,tagList)
+importFrom(shiny,tags)
