@@ -3,13 +3,14 @@ import { handleSidebarCollapsible } from "./collapsible.js";
 
 export const handleInsert = () => {
   Shiny.addCustomMessageHandler("insert-sidebar-item", (msg) => {
-    $("#bms-sidebar-container .bms-sidebar").append(sidebarEntry(msg.title));
+    console.log();
+    $(sidebarEntry(msg.title)).insertAfter($(".bms-sidebar-open").last());
     $("#bms-tabs").append(tab(msg));
     listenTabs();
   });
 
   Shiny.addCustomMessageHandler("insert-sidebar-collapsible", (msg) => {
-    $("#bms-sidebar-container .bms-sidebar").append(
+    $(".bms-sidebar-open").last().insertAfter(
       sidebarEntryCollapsible(msg.title),
     );
     handleSidebarCollapsible();
