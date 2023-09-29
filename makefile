@@ -7,7 +7,7 @@ document: sass
 sass: rollup
 	Rscript dev/sass.R
 
-install:
+install: document
 	Rscript -e "devtools::install()"
 
 rollup:

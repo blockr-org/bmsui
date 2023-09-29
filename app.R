@@ -1,17 +1,14 @@
 # Launch the ShinyApp 
-
-pkgload::load_all(
-  export_all = FALSE,
-  helpers = FALSE,
-  attach_testthat = FALSE
-)
+devtools::load_all()
 
 library(shiny)
 
 ui <- bmsPage(
   navbar = navbar(
     title = "Example application",
-    navbarItem("Profile")
+    navbar_right = navbarRight(
+      navbarItem("Profile")
+    )
   ),
   sidebar = sidebar(
     title = h3("Menu", class = "mt-0 pt-0"),
@@ -119,6 +116,9 @@ ui <- bmsPage(
           class = "bg-info"
         )
       )
+    ),
+    sidebarItemAny(
+      actionButton("add", "Add")
     )
   )
 )

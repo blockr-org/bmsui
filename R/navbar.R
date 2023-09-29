@@ -5,9 +5,12 @@
 #' 
 #' @param ... Any number of [navbarItem()].
 #' @param title Title of navbar.
+#' @param navbar_left,navbar_right Navbar left and right.
+#' 
+#' @name navbar
 #' 
 #' @export
-navbar <- function(..., title = NULL){
+navbar <- function(navbar_left = navbarLeft(), navbar_right = navbarRight(), title = NULL){
   if(is.null(title))
     title <- "BMS"
 
@@ -35,15 +38,32 @@ navbar <- function(..., title = NULL){
         )
       ),
       div(
-        class = "collapse navbar-collapse",
+        class = "collapse navbar-collapse d-flex",
         id = "bmsNavbarContent",
-        tags$ul(
-          class = "navbar-nav me-auto mb-2 mb-lg-0",
-          ...
-        )
+        navbar_left,
+        navbar_right
       )
     )
   )
+}
+
+navbarLR <- function(..., class = ""){
+  tags$ul(
+    class = sprintf("navbar-nav %s", class) |> trimws(),
+    ...
+  )
+}
+
+#' @rdname navbar
+#' @export
+navbarLeft <- function(...){
+  navbarLR(..., class = "flex-grow-1")
+}
+
+#' @rdname navbar
+#' @export
+navbarRight <- function(...){
+  navbarLR(..., class = "flex-shrink-1 ml-auto")
 }
 
 #' Navbar Item

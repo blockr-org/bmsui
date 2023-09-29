@@ -31,6 +31,17 @@ constructSidebarItem <- function(x) {
   structure(x, class = "sidebar-item")
 }
 
+#' Sidebar Item Constructor
+#' 
+#' Sidebar item constructor
+#' 
+#' @param x Object to add class to.
+#' 
+#' @keywords internal
+constructSidebarItemAny <- function(x) {
+  structure(x, class = "sidebar-item-any")
+}
+
 #' Sidebar Constructor
 #' 
 #' Sidebar constructor

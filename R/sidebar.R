@@ -23,6 +23,15 @@ sidebar <- function(
         )
       }
 
+      if(inherits(item, "sidebar-item-any")) {
+        return(
+          div(
+            class = "mb-2",
+            item
+          )
+        )
+      }
+
       children <- lapply(item$content, \(subitem) {
         div(
           class = "bms-sidebar-open bms-sidebar-open-collapsible mb-2",
@@ -55,12 +64,21 @@ sidebar <- function(
 
   list(
     sidebar = div(
-      class = "bms-sidebar",
-      title,
-      entries,
-      tags$img(
-        id = "bms-logo",
-        src = "/public/img/logo.svg"
+      class = "bms-sidebar d-flex flex-column h-100",
+      div(
+        class = "flex-grow-1",
+        title,
+        entries
+      ),
+      div(
+        class = "flex-shrink-1",
+        div(
+          id = "bms-sidebar-description"
+        ),
+        tags$img(
+          id = "bms-logo",
+          src = "/public/img/logo.svg"
+        )
       )
     ),
     content = lapply(list(...), \(item){
@@ -133,4 +151,20 @@ sidebarItem <- function(
 ){
   sidebarItemGeneric(title, ..., description = description) |>
     constructSidebarItem()
+}
+
+#' Sidebar Item Any
+#' 
+#' Create a sidebar item with any content,
+#' does not trigger the opening of a tab.
+#' 
+#' @param ... Content of the item.
+#' 
+#' @export
+sidebarItemAny <- function(
+  ...
+){
+  div(..., class = "bms-sidebar-item-any") |>
+    list() |>
+    constructSidebarItemAny()
 }

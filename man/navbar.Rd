@@ -2,14 +2,22 @@
 % Please edit documentation in R/navbar.R
 \name{navbar}
 \alias{navbar}
+\alias{navbarLeft}
+\alias{navbarRight}
 \title{Navbar}
 \usage{
-navbar(..., title = NULL)
+navbar(navbar_left = navbarLeft(), navbar_right = navbarRight(), title = NULL)
+
+navbarLeft(...)
+
+navbarRight(...)
 }
 \arguments{
-\item{...}{Any number of \code{\link[=navbarItem]{navbarItem()}}.}
+\item{navbar_left, navbar_right}{Navbar left and right.}
 
 \item{title}{Title of navbar.}
+
+\item{...}{Any number of \code{\link[=navbarItem]{navbarItem()}}.}
 }
 \description{
 Create a navbar.
