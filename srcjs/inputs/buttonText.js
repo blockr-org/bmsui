@@ -33,6 +33,15 @@ $(() => {
           callback();
         },
       );
+
+      $(el).find(".btn-text-cancel").on(
+        "click",
+        (e) => {
+          let $binding = $(event.target).closest(".buttonTextBinding");
+          $binding.find(".d-flex").toggleClass("d-none");
+          $binding.find(".btn-trigger-text").toggleClass("d-none");
+        },
+      );
     },
     unsubscribe: (el) => {
       $(el).off(".buttonTextBinding");

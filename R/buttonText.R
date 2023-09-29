@@ -59,19 +59,23 @@ buttonTextInput <- function(
     div(
       class = "d-flex d-none",
       div(
-        class = "flex-grow-1",
+        class = "flex-grow-1 position-relative",
         tags$input(
           type = "text",
           class = "form-control btn-text-input",
           placeholder = placeholder,
           value = value
+        ),
+        span(
+          class = "cursor-pointer position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger btn-text-cancel",
+          shiny::icon("plus")
         )
       ),
       div(
         class = "flex-shrink-1",
         tags$button(
           class = "btn btn-primary btn-validate",
-          validate_content 
+          validate_content
         )
       )
     )
