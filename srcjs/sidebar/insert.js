@@ -7,8 +7,15 @@ export const handleInsert = () => {
     // we create the tab empty
     $("#bms-tabs").append(tab(msg));
     // we leverage this to bind inputs/output within tab on initialisation.
-    Shiny.renderContentAsync($(`[data-tab='${msg.title}']`), msg.content);
-    listenTabs();
+    Shiny.renderContentAsync($(`[data-tab='${msg.title}']`), msg.content)
+      .then(() => {
+        listenTabs();
+
+        const event = new CustomEvent("bms:inserted-tab", {
+          detail: msg.title,
+        });
+        document.dispatchEvent(event);
+      });
   });
 
   Shiny.addCustomMessageHandler("insert-sidebar-collapsible", (msg) => {
