@@ -46,6 +46,7 @@ bmsPage <- function(
     title = title,
     theme = theme,
     mainDependencies(),
+    ...,
     div(
       class = "container-fluid",
       id = "app",

@@ -46,7 +46,6 @@ $(() => {
       $(el).find(".btn-text-input").on(
         "keydown",
         (e) => {
-          console.log(e.which);
           if (e.which != 13) {
             return;
           }

@@ -44,7 +44,7 @@ togglerTextInput <- function(
   stopifnot(!missing(inputId))
 
   dep <- htmltools::htmlDependency(
-    name = "buttonTextBinding",
+    name = "togglerTextBinding",
     version = utils::packageVersion("bmsui"),
     src = "assets",
     script = c(file = "buttonText.min.js"),
@@ -60,6 +60,7 @@ togglerTextInput <- function(
 
   content <- content |>
     htmltools::tagAppendAttributes(class = "btn-trigger-text")
+
 
   div(
     class = "buttonTextBinding",
