@@ -2,22 +2,16 @@
 % Please edit documentation in R/navbar.R
 \name{navbar}
 \alias{navbar}
-\alias{navbarLeft}
-\alias{navbarRight}
 \title{Navbar}
 \usage{
-navbar(navbar_left = navbarLeft(), navbar_right = navbarRight(), title = NULL)
-
-navbarLeft(...)
-
-navbarRight(...)
+navbar(..., title = NULL, alignment = c("left", "right"))
 }
 \arguments{
-\item{navbar_left, navbar_right}{Navbar left and right.}
+\item{...}{Any number of \code{\link[=navbarItem]{navbarItem()}}.}
 
 \item{title}{Title of navbar.}
 
-\item{...}{Any number of \code{\link[=navbarItem]{navbarItem()}}.}
+\item{alignment}{Navbar alignment}
 }
 \description{
 Create a navbar.

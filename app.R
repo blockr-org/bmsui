@@ -6,9 +6,8 @@ library(shiny)
 ui <- bmsPage(
   navbar = navbar(
     title = "Example application",
-    navbar_right = navbarRight(
-      navbarItem("Profile")
-    )
+    alignment = "right",
+    navbarItem("Profile")
   ),
   sidebar = sidebar(
     title = h3("Menu", class = "mt-0 pt-0"),
@@ -118,14 +117,29 @@ ui <- bmsPage(
       )
     ),
     sidebarItemAny(
-      buttonTextInput("btntext", "Add", "tab-name")
+      togglerTextInput("btntext", "Add", "Tab name")
     )
   )
 )
 
 server <- function(input, output, session) {
   observeEvent(input$btntext, {
-    print(input$btntext)
+    if(input$btntext == "")
+      return()
+
+    insert_sidebar_item(
+      input$btntext,
+      div(
+        togglerTextInput(
+          "btntextinserted", 
+          h1(input$btntext), 
+          value = input$btntext,
+          restore = TRUE
+        )
+      )
+    )
+
+   select_sidebar_item(input$btntext)
   })
 
   observeEvent(input$insert, {

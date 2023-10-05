@@ -5,20 +5,26 @@
 #' 
 #' @param ... Any number of [navbarItem()].
 #' @param title Title of navbar.
-#' @param navbar_left,navbar_right Navbar left and right.
+#' @param alignment Navbar alignment
 #' 
 #' @name navbar
 #' 
 #' @export
-navbar <- function(navbar_left = navbarLeft(), navbar_right = navbarRight(), title = NULL){
+navbar <- function(..., title = NULL, alignment = c("left", "right")){
   if(is.null(title))
     title <- "BMS"
+
+  alignment <- match.arg(alignment)
 
   if(is.character(title))
     title <- tags$a(
       class = "navbar-brand",
       title
     )
+
+  div_class <- "collapse navbar-collapse"
+  if(alignment == "right")
+    div_class <- sprintf("%s justify-content-end", div_class)
 
   tags$nav(
     class = "navbar navbar-expand-lg mb-0",
@@ -38,32 +44,15 @@ navbar <- function(navbar_left = navbarLeft(), navbar_right = navbarRight(), tit
         )
       ),
       div(
-        class = "collapse navbar-collapse d-flex",
+        class = div_class,
         id = "bmsNavbarContent",
-        navbar_left,
-        navbar_right
+        tags$ul(
+          class = "navbar-nav",
+          ...
+        )
       )
     )
   )
-}
-
-navbarLR <- function(..., class = ""){
-  tags$ul(
-    class = sprintf("navbar-nav %s", class) |> trimws(),
-    ...
-  )
-}
-
-#' @rdname navbar
-#' @export
-navbarLeft <- function(...){
-  navbarLR(..., class = "flex-grow-1")
-}
-
-#' @rdname navbar
-#' @export
-navbarRight <- function(...){
-  navbarLR(..., class = "flex-shrink-1 ml-auto")
 }
 
 #' Navbar Item

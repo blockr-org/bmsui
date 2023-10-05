@@ -1,18 +1,21 @@
-#' Button Text
+#' Toggler Text Input
 #' 
-#' A button that "transforms" into a text input.
+#' An element that "transforms" into a text input.
 #' 
 #' @param inputId Id of input.
 #' @param value Initial value.
 #' @param placeholder Placeholder for revealed text input.
 #' @param validate_content Content of revealed button.
-#' @param btn_content Content of initial button.
+#' @param content Content of initial element.
+#' @param restore If `TRUE` it restores the text content to the 
+#'  value set in the text input, if `FALSE` it restores the 
+#'  to the `content`.
 #' 
 #' @examples 
 #' library(shiny)
 #' 
 #' ui <- fluidPage(
-#'  buttonTextInput("theId", 0)
+#'  togglerTextInput("theId", "Button")
 #' )
 #' 
 #' server <- function(input, output){
@@ -29,12 +32,13 @@
 #' @importFrom shiny tags tagList
 #' 
 #' @export 
-buttonTextInput <- function(
+togglerTextInput <- function(
   inputId, 
-  btn_content = "Create", 
+  content = "Create", 
   placeholder = "Title", 
   validate_content = shiny::icon("paper-plane"),
-  value = ""
+  value = "",
+  restore = FALSE
 ){
 
   stopifnot(!missing(inputId))
@@ -47,15 +51,23 @@ buttonTextInput <- function(
     package = "bmsui"
   )
 
-  div(
-    class = "buttonTextBinding",
-    id = inputId,
-    dep,
-    tags$button(
+  if(is.character(content))
+    content <- tags$button(
       class = "btn btn-default btn-trigger-text w-100",
       type = "button",
-      as.character(btn_content)
-    ),
+      as.character(content)
+    )
+
+  content <- content |>
+    htmltools::tagAppendAttributes(class = "btn-trigger-text")
+
+
+  div(
+    class = "buttonTextBinding",
+    `data-restore` = tolower(restore),
+    id = inputId,
+    dep,
+    content,
     div(
       class = "d-flex d-none",
       div(

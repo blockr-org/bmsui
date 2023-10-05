@@ -3,9 +3,11 @@ import { handleSidebarCollapsible } from "./collapsible.js";
 
 export const handleInsert = () => {
   Shiny.addCustomMessageHandler("insert-sidebar-item", (msg) => {
-    console.log();
     $(sidebarEntry(msg.title)).insertAfter($(".bms-sidebar-open").last());
+    // we create the tab empty
     $("#bms-tabs").append(tab(msg));
+    // we leverage this to bind inputs/output within tab on initialisation.
+    Shiny.renderContentAsync($(`[data-tab='${msg.title}']`), msg.content);
     listenTabs();
   });
 
@@ -43,5 +45,5 @@ const sidebarEntryCollapsible = (title) => {
 };
 
 const tab = (params) => {
-  return `<div class='bms-sidebar-item d-none' data-tab='${params.title}'>${params.content}</div>`;
+  return `<div class='bms-sidebar-item d-none' data-tab='${params.title}'></div>`;
 };

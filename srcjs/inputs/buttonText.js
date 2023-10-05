@@ -1,3 +1,15 @@
+const revert = (event, cb) => {
+  let $binding = $(event.target).closest(".buttonTextBinding");
+  $binding.find(".d-flex").toggleClass("d-none");
+  $binding.find(".btn-trigger-text").toggleClass("d-none");
+  if ($binding.data("restore")) {
+    $binding.find(".btn-trigger-text").text(
+      $binding.find(".btn-text-input").val(),
+    );
+  }
+  cb();
+};
+
 $(() => {
   var buttonTextBinding = new Shiny.InputBinding();
 
@@ -27,10 +39,19 @@ $(() => {
       $(el).find(".btn-validate").on(
         "click",
         (e) => {
-          let $binding = $(event.target).closest(".buttonTextBinding");
-          $binding.find(".d-flex").toggleClass("d-none");
-          $binding.find(".btn-trigger-text").toggleClass("d-none");
-          callback();
+          revert(e, callback);
+        },
+      );
+
+      $(el).find(".btn-text-input").on(
+        "keydown",
+        (e) => {
+          console.log(e.which);
+          if (e.which != 13) {
+            return;
+          }
+
+          revert(e, callback);
         },
       );
 
