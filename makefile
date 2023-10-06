@@ -1,4 +1,4 @@
-default: document
+check: document
 	Rscript -e "devtools::check()"
 
 document: sass

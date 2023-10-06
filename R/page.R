@@ -28,14 +28,15 @@ bmsPage <- function(
   if(is.null(navbar))
     navbar <- span("")
 
-  app_class <- ""
+  app_style <- ""
   if(tagQuery(navbar)$hasClass("fixed-top"))
-    app_class <- "mt-5"
+    app_style <- "margin-top:4rem"
 
   serve_public()
 
   appview <- div(
-    class = sprintf("d-flex %s", app_class) |> trimws(),
+    class = "d-flex",
+    style = app_style,
     div(
       id = "bms-sidebar-container",
       class = "flex-shrink-1 d-md-block p-2",

@@ -12,6 +12,8 @@ navbar(..., title = NULL, alignment = c("left", "right"), fixed = FALSE)
 \item{title}{Title of navbar.}
 
 \item{alignment}{Navbar alignment}
+
+\item{fixed}{Whether to fix the navbar at the top.}
 }
 \description{
 Create a navbar.

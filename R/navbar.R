@@ -6,6 +6,7 @@
 #' @param ... Any number of [navbarItem()].
 #' @param title Title of navbar.
 #' @param alignment Navbar alignment
+#' @param fixed Whether to fix the navbar at the top.
 #' 
 #' @name navbar
 #' 
