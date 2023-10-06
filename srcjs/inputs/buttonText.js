@@ -31,8 +31,18 @@ $(() => {
           $(e.target).closest(".buttonTextBinding").find(".d-flex").toggleClass(
             "d-none",
           );
-          $(event.target).closest(".buttonTextBinding").find(".btn-text-input")
-            .val("");
+
+          if ($(event.target).closest(".buttonTextBinding").data("restore")) {
+            $(event.target).closest(".buttonTextBinding").find(
+              ".btn-text-input",
+            )
+              .val($(event.currentTarget).text());
+          } else {
+            $(event.target).closest(".buttonTextBinding").find(
+              ".btn-text-input",
+            )
+              .val("");
+          }
         },
       );
 
