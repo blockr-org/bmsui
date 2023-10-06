@@ -18,7 +18,10 @@ insert_sidebar_item <- function(
     "insert-sidebar-item",
     list(
       title = title,
-      content = as.character(...)
+      content = process_deps(
+        tagList(...),
+        session
+      )
     )
   )
 }

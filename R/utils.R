@@ -17,3 +17,7 @@ pkg_file <- function(...) {
 serve_public <- function() {
   shiny::addResourcePath("public", pkg_file("public"))
 }
+
+process_deps <- function(...) {
+  getFromNamespace("processDeps", "shiny")(...)
+}

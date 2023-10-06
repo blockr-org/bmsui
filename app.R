@@ -136,7 +136,8 @@ server <- function(input, output, session) {
           h1(input$btntext), 
           value = input$btntext,
           restore = TRUE
-        )
+        ),
+        selectInput("xx", "The label", choices = letters, multiple = TRUE)
       )
     )
 
