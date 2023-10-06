@@ -80,7 +80,7 @@ togglerTextInput <- function(
         ),
         span(
           class = "cursor-pointer position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger btn-text-cancel",
-          shiny::icon("plus")
+          shiny::icon("times")
         )
       ),
       div(
