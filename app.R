@@ -7,6 +7,7 @@ ui <- bmsPage(
   navbar = navbar(
     title = "Example application",
     alignment = "right",
+    fixed = TRUE,
     navbarItem("Profile")
   ),
   sidebar = sidebar(

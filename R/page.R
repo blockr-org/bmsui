@@ -8,6 +8,8 @@
 #' @param sidebar Sidebar as returned by [sidebar()].
 #' @param navbar Navbar as returned by [navbar()].
 #' 
+#' @importFrom htmltools tagQuery
+#' 
 #' @import shiny
 #' @export
 bmsPage <- function(
@@ -24,12 +26,16 @@ bmsPage <- function(
     title <- "BMS"
 
   if(is.null(navbar))
-    navbar <- ""
+    navbar <- span("")
+
+  app_class <- ""
+  if(tagQuery(navbar)$hasClass("fixed-top"))
+    app_class <- "mt-5"
 
   serve_public()
 
   appview <- div(
-    class = "d-flex",
+    class = sprintf("d-flex %s", app_class) |> trimws(),
     div(
       id = "bms-sidebar-container",
       class = "flex-shrink-1 d-md-block p-2",

@@ -4,7 +4,7 @@
 \alias{navbar}
 \title{Navbar}
 \usage{
-navbar(..., title = NULL, alignment = c("left", "right"))
+navbar(..., title = NULL, alignment = c("left", "right"), fixed = FALSE)
 }
 \arguments{
 \item{...}{Any number of \code{\link[=navbarItem]{navbarItem()}}.}

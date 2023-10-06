@@ -10,7 +10,7 @@
 #' @name navbar
 #' 
 #' @export
-navbar <- function(..., title = NULL, alignment = c("left", "right")){
+navbar <- function(..., title = NULL, alignment = c("left", "right"), fixed = FALSE){
   if(is.null(title))
     title <- "BMS"
 
@@ -26,8 +26,12 @@ navbar <- function(..., title = NULL, alignment = c("left", "right")){
   if(alignment == "right")
     div_class <- sprintf("%s justify-content-end", div_class)
 
+  fixed_class <- ""
+  if(fixed)
+    fixed_class <- "fixed-top"
+
   tags$nav(
-    class = "navbar navbar-expand-lg mb-0",
+    class = sprintf("navbar bg-white navbar-expand-lg mb-0 %s", fixed_class) |> trimws(),
     div(
       class = "container-fluid",
       title,
