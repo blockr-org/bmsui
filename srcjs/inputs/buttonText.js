@@ -32,13 +32,13 @@ $(() => {
             "d-none",
           );
 
-          if ($(event.target).closest(".buttonTextBinding").data("restore")) {
-            $(event.target).closest(".buttonTextBinding").find(
+          if ($(e.target).closest(".buttonTextBinding").data("restore")) {
+            $(e.target).closest(".buttonTextBinding").find(
               ".btn-text-input",
             )
-              .val($(event.currentTarget).text());
+              .val($(e.currentTarget).text());
           } else {
-            $(event.target).closest(".buttonTextBinding").find(
+            $(e.target).closest(".buttonTextBinding").find(
               ".btn-text-input",
             )
               .val("");
@@ -67,7 +67,7 @@ $(() => {
       $(el).find(".btn-text-cancel").on(
         "click",
         (e) => {
-          let $binding = $(event.target).closest(".buttonTextBinding");
+          let $binding = $(e.target).closest(".buttonTextBinding");
           $binding.find(".d-flex").toggleClass("d-none");
           $binding.find(".btn-trigger-text").toggleClass("d-none");
         },
