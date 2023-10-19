@@ -19,5 +19,5 @@ serve_public <- function() {
 }
 
 process_deps <- function(...) {
-  getFromNamespace("processDeps", "shiny")(...)
+  utils::getFromNamespace("processDeps", "shiny")(...)
 }

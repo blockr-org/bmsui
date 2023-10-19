@@ -6,7 +6,7 @@ html {
   }
 
   #bms-sidebar-container {
-    min-width: 12rem;
+    max-width: 10%;
     min-height: 94vh;   
     padding: 0;
     border-right: 1px solid $lightgray;
@@ -27,6 +27,10 @@ html {
 
   #bms-logo {
     width: 170px;
+  }
+
+  #bms-tabs {
+    max-width: 90%;
   }
 }
 
