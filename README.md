@@ -11,7 +11,7 @@ You can install the development version of bmsui from [GitHub](https://github.co
 
 ``` r
 # install.packages("remotes")
-devtools::install_github("devOpifex/bmsui")
+devtools::install_github("blockr-org/bmsui")
 ```
 
 ## Example
