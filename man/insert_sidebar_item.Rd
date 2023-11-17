@@ -4,12 +4,19 @@
 \alias{insert_sidebar_item}
 \title{Insert Sidebar Item}
 \usage{
-insert_sidebar_item(title, ..., session = shiny::getDefaultReactiveDomain())
+insert_sidebar_item(
+  title,
+  ...,
+  id = title,
+  session = shiny::getDefaultReactiveDomain()
+)
 }
 \arguments{
 \item{title}{Title of the item.}
 
 \item{...}{Content of the item.}
+
+\item{id}{ID of tab.}
 
 \item{session}{A valid Shiny session.}
 }

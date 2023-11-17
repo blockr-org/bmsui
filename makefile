@@ -13,5 +13,5 @@ install: document
 rollup:
 	rollup -c
 
-run: sass rollup
+dev: sass rollup
 	Rscript app.R

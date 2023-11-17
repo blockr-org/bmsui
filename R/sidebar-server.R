@@ -5,11 +5,13 @@
 #' 
 #' @inheritParams sidebarItem
 #' @param session A valid Shiny session.
+#' @param id ID of tab.
 #' 
 #' @export
 insert_sidebar_item <- function(
   title,
   ...,
+  id = title,
   session = shiny::getDefaultReactiveDomain()
 ){
   assert_that(is_not_missing(title))
@@ -18,8 +20,9 @@ insert_sidebar_item <- function(
     "insert-sidebar-item",
     list(
       title = title |> as.character(),
+      id = id |> as.character(),
       content = process_deps(
-        tagList(title, ...),
+        tagList(...),
         session
       )
     )

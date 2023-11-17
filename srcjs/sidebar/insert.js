@@ -2,45 +2,50 @@ import { listenTabs } from "./show.js";
 import { handleSidebarCollapsible } from "./collapsible.js";
 
 export const handleInsert = () => {
-  Shiny.addCustomMessageHandler("insert-sidebar-item", (msg) => {
-    $(sidebarEntry(msg.title)).insertAfter($(".bms-sidebar-open").last());
+  window.Shiny.addCustomMessageHandler("insert-sidebar-item", (msg) => {
+    $(sidebarEntry(msg.title, msg.id)).insertAfter(
+      $(".bms-sidebar-open").last(),
+    );
     // we create the tab empty
     $("#bms-tabs").append(tab(msg));
 
     // we leverage this to bind inputs/output within tab on initialisation.
-    Shiny.renderDependenciesAsync(msg.content.deps).then(() => {
-      Shiny.renderContentAsync(
-        $(`[data-tab='${msg.title}']`),
-        msg.content,
+    window.Shiny.renderDependenciesAsync(msg.content.deps).then(() => {
+      window.Shiny.renderContentAsync(
+        $(`[data-tab='${msg.id}']`),
+        msg.content.html,
       ).then(() => {
         listenTabs();
 
         const event = new CustomEvent("bms:inserted-tab", {
-          detail: msg.title,
+          detail: msg.id,
         });
         document.dispatchEvent(event);
       });
     });
   });
 
-  Shiny.addCustomMessageHandler("insert-sidebar-collapsible", (msg) => {
+  window.Shiny.addCustomMessageHandler("insert-sidebar-collapsible", (msg) => {
     $(".bms-sidebar-open")
       .last()
       .insertAfter(sidebarEntryCollapsible(msg.title));
     handleSidebarCollapsible();
   });
 
-  Shiny.addCustomMessageHandler("insert-sidebar-collapsible-item", (msg) => {
-    $(`[data-id='${msg.target}']`).append(
-      sidebarEntryCollapsibleItem(msg.title),
-    );
-    $("#bms-tabs").append(tab(msg));
-    listenTabs();
-  });
+  window.Shiny.addCustomMessageHandler(
+    "insert-sidebar-collapsible-item",
+    (msg) => {
+      $(`[data-id='${msg.target}']`).append(
+        sidebarEntryCollapsibleItem(msg.title),
+      );
+      $("#bms-tabs").append(tab(msg));
+      listenTabs();
+    },
+  );
 };
 
-const sidebarEntry = (title) => {
-  return `<div class='bms-sidebar-open mb-2' data-target='${title}'>${title}</div>`;
+const sidebarEntry = (title, id) => {
+  return `<div class='bms-sidebar-open mb-2' data-target='${id}'>${title}</div>`;
 };
 
 const sidebarEntryCollapsibleItem = (title) => {
@@ -57,5 +62,5 @@ const sidebarEntryCollapsible = (title) => {
 };
 
 const tab = (params) => {
-  return `<div class='bms-sidebar-item d-none' data-tab='${params.title}'></div>`;
+  return `<div class='bms-sidebar-item d-none' data-tab='${params.id}'></div>`;
 };
