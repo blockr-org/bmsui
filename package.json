@@ -28,6 +28,7 @@
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.0.2",
     "@rollup/plugin-terser": "^0.4.1",
+    "prettier": "3.0.3",
     "rollup-plugin-import-css": "^3.2.1",
     "stylelint": "^15.11.0",
     "stylelint-config-standard": "^34.0.0",

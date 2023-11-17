@@ -17,9 +17,9 @@ insert_sidebar_item <- function(
   session$sendCustomMessage(
     "insert-sidebar-item",
     list(
-      title = title,
+      title = title |> as.character(),
       content = process_deps(
-        tagList(...),
+        tagList(title, ...),
         session
       )
     )
@@ -79,7 +79,7 @@ insert_sidebar_collapsible <- function(
 #' @param session A valid Shiny session.
 #' 
 #' @export
-insert_sidebar_collapsible_item <- function(
+insert_sidebar_collapsible_item <- function( # nolint
   target,
   title,
   ...,
